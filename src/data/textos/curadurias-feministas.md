@@ -17,4 +17,3 @@ Trabajo centrado en el desarrollo de una perspectiva de curaduría feminista par
 - Investigación-acción.
 - Indicadores situados para la evaluación de proyectos culturales.
 
-**Estado editorial del sitio:** preparar una versión web o fragmentos seleccionados después de definir con la autora qué partes desea publicar.

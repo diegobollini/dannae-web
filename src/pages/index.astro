@@ -5,23 +5,32 @@ import { getCollection } from 'astro:content';
 
 const projects = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
 const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.data.order);
+const featuredText = texts.find((text) => text.data.featured) ?? texts[0];
+const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
 ---
 <BaseLayout>
-  <section class="hero container section-grid">
-    <div class="section-number">00</div>
-    <div class="hero-copy">
+  <section class="hero container">
+    <div class="hero-index mono">00 / ROSARIO</div>
+    <div class="hero-main">
       <p class="eyebrow">Gestora cultural · Actriz · Investigadora</p>
       <h1>Hacer que las cosas sucedan.</h1>
       <p class="lead">Gestión, investigación y producción cultural en la intersección entre artes escénicas, políticas culturales y feminismos.</p>
       <div class="hero-actions">
-        <a class="text-link" href="#proyectos">Ver proyectos →</a>
-        <a class="text-link" href="#textos">Leer textos →</a>
+        <a class="text-link" href="#proyectos">Proyectos ↓</a>
+        <a class="text-link" href="#textos">Textos ↓</a>
       </div>
     </div>
-    <div class="hero-composition" aria-label="Composición gráfica conceptual">
-      <div class="color-panel blue"><strong>gestión<br />+ territorio</strong></div>
-      <div class="color-panel magenta"><strong>escena</strong></div>
-      <div class="color-panel yellow"><strong>pensar<br />el hacer</strong></div>
+
+    <div class="hero-board" aria-label="Composición gráfica conceptual">
+      <div class="hero-board-copy">
+        <span>gestión</span>
+        <span>escena</span>
+        <span>pensamiento</span>
+      </div>
+      <figure class="hero-board-photo">
+        <img src="/images/reference/enm-rosario-2016.webp" alt="Encuentro Nacional de Mujeres en Rosario, 2016" />
+      </figure>
+      <div class="hero-board-note mono">cultura / territorio / vínculos</div>
     </div>
   </section>
 
@@ -46,7 +55,7 @@ const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.da
     </div>
   </section>
 
-  <section id="bio" class="container section-grid ruled">
+  <section id="bio" class="container section-grid ruled statement-section">
     <div class="section-number">02</div>
     <div class="statement">
       <p class="eyebrow">Una forma de hacer</p>
@@ -54,67 +63,69 @@ const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.da
     </div>
     <div class="statement-side">
       <p>Una práctica situada entre la gestión cultural, las artes escénicas, la investigación y los feminismos.</p>
+      <p class="mono statement-note">hacer / pensar / producir / evaluar / volver a hacer</p>
       <a class="text-link" href="#trayectoria">Recorrer trayectoria →</a>
     </div>
   </section>
 
-  <figure class="visual-break container ruled">
-    <div class="visual-image-wrap visual-image-rosario">
-      <img src="/images/reference/enm-rosario-2016.webp" alt="Encuentro Nacional de Mujeres en Rosario, 2016" loading="lazy" />
-      <span class="visual-word" aria-hidden="true">TERRITORIO</span>
-    </div>
-    <figcaption>
-      <span>Imagen de referencia durante el prototipado · Rosario, 2016</span>
-      <a href="/creditos/">CC BY-SA 4.0 · créditos →</a>
-    </figcaption>
-  </figure>
+  <section id="textos" class="editorial-band">
+    <div class="container section-grid editorial-grid">
+      <div class="section-number">03</div>
+      <div class="editorial-heading">
+        <p class="eyebrow">Textos e investigación</p>
+        <h2>Pensar también es una forma de hacer.</h2>
+      </div>
 
-  <section id="textos" class="container section-grid ruled">
-    <div class="section-number">03</div>
-    <div class="section-title">
-      <p class="eyebrow">Textos e investigación</p>
-      <h2>Pensar también es una forma de hacer.</h2>
-    </div>
-    <div class="texts-list">
-      {texts.map((text) => (
-        <a href={`/textos/${text.id}/`} class="text-row">
-          <span>{text.data.year}</span>
-          <strong>{text.data.title}</strong>
-          <em>{text.data.type}</em>
-          <b>→</b>
+      {featuredText && (
+        <a class="featured-text" href={`/textos/${featuredText.id}/`}>
+          <span class="featured-text-meta mono">{featuredText.data.type} · {featuredText.data.year}</span>
+          <strong>{featuredText.data.title}</strong>
+          <p>{featuredText.data.summary}</p>
+          <span class="featured-text-arrow">Leer →</span>
         </a>
-      ))}
+      )}
+
+      <div class="texts-list editorial-list">
+        {secondaryTexts.map((text) => (
+          <a href={`/textos/${text.id}/`} class="text-row">
+            <span>{text.data.year}</span>
+            <strong>{text.data.title}</strong>
+            <em>{text.data.type}</em>
+            <b>→</b>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
-  <section class="container section-grid ruled">
+  <section class="container section-grid ruled metrics-section">
     <div class="section-number">04</div>
     <div class="section-title">
       <p class="eyebrow">Datos del hacer</p>
-      <h2>Escala y articulación.</h2>
+      <h2>Escala, seguimiento y articulación.</h2>
     </div>
     <div class="metrics-grid">
-      <div class="metric"><strong>300+</strong><span>funciones programadas<br />Argentina Florece</span></div>
-      <div class="metric"><strong>600+</strong><span>espectadores<br />Provocaciones Escénicas</span></div>
-      <div class="metric"><strong>180</strong><span>cuestionarios<br />de monitoreo</span></div>
-      <div class="metric"><strong>30</strong><span>organizaciones articuladas<br />en Bacanal</span></div>
+      <div class="metric metric-yellow"><strong>300+</strong><span>funciones programadas<br />Argentina Florece</span></div>
+      <div class="metric metric-teal"><strong>600+</strong><span>espectadores<br />Provocaciones Escénicas</span></div>
+      <div class="metric metric-coral"><strong>180</strong><span>cuestionarios<br />de monitoreo</span></div>
+      <div class="metric metric-blue"><strong>30</strong><span>organizaciones articuladas<br />en Bacanal</span></div>
     </div>
   </section>
 
-  <section class="container section-grid ruled scene-section">
-    <div class="section-number">05</div>
-    <div class="section-title">
-      <p class="eyebrow">Escena</p>
+  <section class="container scene-editorial ruled">
+    <div class="scene-index mono">05 / ESCENA</div>
+    <div class="scene-title-wrap">
+      <p class="eyebrow">Actuación · Producción · Gestión</p>
       <h2>El teatro no aparece al costado de la gestión.</h2>
-    </div>
-    <div class="scene-copy">
-      <p>Actuación, producción y gestión conviven dentro de una misma práctica.</p>
-      <p class="mono">La fotografía es una referencia abierta temporal. Se reemplazará o revisará antes de cerrar el sitio.</p>
     </div>
     <figure class="scene-photo">
       <img src="/images/reference/performance-flora-tristan-2025.webp" alt="Performance sobre el sufragio femenino organizada por el Centro de la Mujer Peruana Flora Tristán" loading="lazy" />
-      <figcaption><a href="/creditos/">Referencia visual · CC BY-SA 4.0 →</a></figcaption>
+      <figcaption><a href="/creditos/">Imagen de referencia · créditos →</a></figcaption>
     </figure>
+    <div class="scene-copy">
+      <p>Actuación, producción y gestión conviven dentro de una misma práctica.</p>
+      <p class="mono">La imagen es temporal. Sirve para probar ritmo, escala y color hasta definir el archivo visual definitivo.</p>
+    </div>
   </section>
 
   <section id="trayectoria" class="container section-grid ruled">
@@ -131,16 +142,18 @@ const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.da
     </div>
   </section>
 
-  <section id="contacto" class="container section-grid ruled contact-section">
-    <div class="section-number">07</div>
-    <div>
-      <p class="eyebrow">Contacto</p>
-      <h2>Rosario, Argentina.</h2>
-    </div>
-    <div class="contact-links">
-      <a href="mailto:dannaeabdalla@gmail.com">dannaeabdalla@gmail.com</a>
-      <a href="https://www.instagram.com/alegremonton/" rel="me">Instagram ↗</a>
-      <a href="https://www.linkedin.com/in/dannae-abdalla-4208721b0/">LinkedIn ↗</a>
+  <section id="contacto" class="contact-wrap">
+    <div class="container section-grid contact-section">
+      <div class="section-number">07</div>
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2>Rosario, Argentina.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:dannaeabdalla@gmail.com">dannaeabdalla@gmail.com</a>
+        <a href="https://www.instagram.com/alegremonton/" rel="me">Instagram ↗</a>
+        <a href="https://www.linkedin.com/in/dannae-abdalla-4208721b0/">LinkedIn ↗</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
