@@ -1,80 +1,46 @@
-# dannae-web — prototipo v0.2
+# dannae-web
 
-Sitio estático personal de Dannae Abdalla.
-
-## Estado
-
-Prototipo previo a revisión de la titular del sitio.
-
-**No publicar todavía.** El repositorio y los deploys deben permanecer privados/no indexados hasta la presentación del regalo.
+Sitio personal de Dannae Abdalla. Prototipo v0.3.
 
 ## Stack
 
 - Astro 7
-- HTML semántico generado estáticamente
-- CSS nativo
-- Markdown + Content Collections
-- Sin JavaScript en cliente
-- Sin CMS
-- Sin base de datos
-- Sin analytics
-- Sin cookies
+- HTML semántico + CSS nativo
+- Markdown / Content Collections
+- Sin JavaScript cliente
+- Deploy estático en Vercel
 
-## Desarrollo
+## Desarrollo local sin instalar Node/npm
+
+Recomendado: Podman rootless.
 
 ```bash
-npm install
-npm run dev
+make lock   # sólo la primera vez o al cambiar dependencias
+make dev
 ```
 
-Build:
+Abrir: http://localhost:4321
+
+Para usar Docker en lugar de Podman:
 
 ```bash
-npm run build
+make RUNTIME=docker lock
+make RUNTIME=docker dev
 ```
 
-La salida queda en `dist/`.
+El volumen `dannae-node-modules` mantiene `node_modules` fuera del árbol del proyecto.
 
-## Vercel
+## Lockfile
 
-Un sitio Astro estático puede desplegarse en Vercel sin adaptador específico.
+El repositorio debe incluir `package-lock.json`.
 
-Flujo previsto:
+- Primera generación: `make lock`
+- Instalaciones reproducibles: `npm ci`
+- Vercel también utilizará el lockfile al construir.
 
-```text
-GitHub -> Vercel -> dannaeabdalla.com.ar
-```
+## Imágenes de referencia
 
-No conectar todavía el dominio público si se quiere preservar la sorpresa.
+`public/images/reference/` contiene imágenes abiertas usadas sólo durante el prototipado.
+Sus créditos y licencias están documentados en `/creditos/`.
 
-## Contenido
-
-- `src/data/proyectos/*.md`: proyectos.
-- `src/data/textos/*.md`: publicaciones e investigaciones.
-- `src/content.config.ts`: esquema y validación.
-
-Para agregar contenido, crear un Markdown nuevo. No es necesario modificar la home.
-
-## Privacidad durante el desarrollo
-
-No versionar en un repositorio público:
-
-- capturas del Instagram privado;
-- CV con dirección o teléfono;
-- tesis completa;
-- fotografías privadas;
-- documentos de trabajo no publicados.
-
-El `robots.txt` actual bloquea indexación como defensa adicional. No reemplaza mantener privado el repositorio o el deployment.
-
-## Licencias
-
-Pendiente de decisión.
-
-Separar explícitamente:
-
-- licencia del código;
-- derechos/licencia de textos;
-- derechos/licencia de fotografías.
-
-No asumir que una licencia de software cubre el contenido editorial.
+No implican participación de Dannae en las actividades fotografiadas.

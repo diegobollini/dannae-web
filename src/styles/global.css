@@ -194,3 +194,77 @@ h3 { margin-bottom: 6px; font-size: clamp(22px, 2vw, 30px); letter-spacing: -.03
   .site-footer { flex-direction: column; align-items: flex-start; justify-content: center; }
   .detail-grid { grid-template-columns: 1fr; gap: 36px; }
 }
+
+/* v0.3 — fotografía abierta como material temporal de prototipado */
+.visual-break {
+  margin-top: clamp(10px, 2vw, 28px);
+  padding-block: var(--gutter);
+}
+.visual-image-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(360px, 56vw, 760px);
+  border: 1px solid var(--ink);
+  background: var(--magenta);
+}
+.visual-image-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--magenta) 22%, transparent);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+.visual-image-wrap img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  filter: saturate(.82) contrast(1.08);
+}
+.visual-word {
+  position: absolute;
+  z-index: 2;
+  left: clamp(14px, 2vw, 30px);
+  bottom: clamp(10px, 1.5vw, 24px);
+  color: var(--paper);
+  font-size: clamp(54px, 12vw, 190px);
+  font-weight: 950;
+  line-height: .72;
+  letter-spacing: -.085em;
+  mix-blend-mode: difference;
+}
+.visual-break figcaption,
+.scene-photo figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 9px;
+  font: 10px/1.35 ui-monospace, monospace;
+  color: var(--muted);
+}
+.scene-photo {
+  grid-column: 3;
+  margin: 0;
+  align-self: stretch;
+}
+.scene-photo img {
+  width: 100%;
+  min-height: 520px;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--ink);
+  filter: saturate(.72) contrast(1.06);
+}
+.scene-section .scene-copy { align-self: center; }
+.credits-list h2 { font-size: clamp(28px, 3vw, 44px); }
+
+@media (max-width: 900px) {
+  .visual-break { padding-block: 24px 48px; }
+  .visual-image-wrap { min-height: 430px; }
+  .visual-word { font-size: clamp(48px, 18vw, 92px); }
+  .visual-break figcaption,
+  .scene-photo figcaption { flex-direction: column; gap: 4px; }
+  .scene-photo { grid-column: 2; margin-top: 24px; }
+  .scene-photo img { min-height: 360px; }
+}
