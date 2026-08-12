@@ -57,3 +57,8 @@ La paleta toma como referencia el archivo visual compartido durante el prototipa
 Sus créditos y licencias están documentados en `/creditos/`.
 
 No implican participación de Dannae en las actividades fotografiadas.
+
+## v0.6 · Bio y trayectoria
+
+La bio se plantea como un relato de cruces entre escena, producción, gestión e investigación.
+Las fechas sólo se muestran cuando están respaldadas por el CV o la documentación de trabajo.

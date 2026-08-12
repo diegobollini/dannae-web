@@ -608,3 +608,262 @@ h3 { margin-bottom: 6px; font-size: clamp(22px, 2vw, 30px); letter-spacing: -.03
 @media (max-width: 560px) {
   .project-metric-strip { grid-template-columns: 1fr; }
 }
+
+/* v0.6 — bio y trayectoria como relato, no como CV cronológico */
+.trajectory-preview .section-title { align-self: start; }
+.trajectory-link { display: inline-block; margin-top: 34px; }
+.trajectory-crossings { border-top: 1px solid var(--ink); }
+.trajectory-crossings > div {
+  display: grid;
+  grid-template-columns: 112px minmax(130px, .48fr) 1fr;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.trajectory-crossings span { font-size: 10px; color: var(--muted); }
+.trajectory-crossings strong {
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.2vw, 32px);
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+.trajectory-crossings p { margin: 0; color: var(--muted); }
+
+.bio-page { overflow: clip; }
+.bio-hero {
+  min-height: calc(100svh - 72px);
+  padding-block: clamp(42px, 6vw, 92px) clamp(74px, 10vw, 150px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bio-hero-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: clamp(68px, 10vw, 150px);
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+.bio-title {
+  max-width: 1320px;
+  margin: 14px 0 clamp(60px, 8vw, 118px);
+  font-size: clamp(72px, 10.2vw, 166px);
+  line-height: .8;
+  letter-spacing: -.08em;
+}
+.bio-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .38fr);
+  gap: clamp(42px, 8vw, 130px);
+  align-items: end;
+}
+.bio-lead {
+  max-width: 980px;
+  margin: 0;
+  font: 500 clamp(28px, 3.35vw, 50px)/1.08 var(--serif);
+  letter-spacing: -.03em;
+}
+.bio-side {
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink);
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.bio-manifesto-wrap {
+  background: var(--magenta);
+  color: #fff;
+  border-block: 1px solid var(--ink);
+}
+.bio-manifesto {
+  min-height: 58svh;
+  padding-block: clamp(64px, 9vw, 130px);
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 96px);
+  align-items: end;
+}
+.bio-manifesto > span { align-self: start; font-size: 10px; }
+.bio-manifesto p {
+  max-width: 1180px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(52px, 7vw, 108px);
+  line-height: .91;
+  letter-spacing: -.055em;
+}
+
+.bio-path { padding-block: clamp(80px, 11vw, 170px); }
+.bio-path-heading {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 96px);
+  margin-bottom: clamp(68px, 9vw, 128px);
+}
+.bio-path-heading > span { padding-top: 8px; font-size: 10px; color: var(--muted); }
+.bio-path-heading h2 { max-width: 1040px; }
+.bio-path-list { border-top: 1px solid var(--ink); }
+.bio-path-item {
+  --path-accent: var(--blue);
+  position: relative;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 96px);
+  padding: clamp(34px, 5vw, 72px) 0 clamp(36px, 5vw, 74px) 22px;
+  border-bottom: 1px solid var(--ink);
+}
+.bio-path-item::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 8px;
+  background: var(--path-accent);
+}
+.bio-path-blue { --path-accent: var(--blue); }
+.bio-path-teal { --path-accent: var(--teal); }
+.bio-path-coral { --path-accent: var(--coral); }
+.bio-path-yellow { --path-accent: var(--yellow); }
+.bio-path-magenta { --path-accent: var(--magenta); }
+.bio-path-ink { --path-accent: var(--ink); }
+.bio-path-year { padding-top: 8px; font-size: 11px; color: var(--muted); }
+.bio-path-copy { max-width: 930px; }
+.bio-path-copy h3 {
+  margin: 0 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(38px, 4.7vw, 72px);
+  line-height: .96;
+  font-weight: 540;
+  letter-spacing: -.045em;
+}
+.bio-path-copy > p:last-child {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(18px, 1.7vw, 24px);
+  line-height: 1.5;
+}
+
+.bio-crossings-wrap { background: var(--ink); color: var(--paper); }
+.bio-crossings { padding-block: clamp(80px, 11vw, 164px); }
+.bio-crossings-head {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 96px);
+  margin-bottom: clamp(64px, 8vw, 112px);
+}
+.bio-crossings-head > span { padding-top: 8px; font-size: 10px; color: color-mix(in srgb, var(--paper) 58%, transparent); }
+.bio-crossings-head h2 { font-family: var(--serif); font-weight: 520; }
+.bio-crossing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid color-mix(in srgb, var(--paper) 44%, transparent);
+  border-left: 1px solid color-mix(in srgb, var(--paper) 44%, transparent);
+}
+.bio-crossing-grid article {
+  min-height: 320px;
+  padding: clamp(24px, 3vw, 44px);
+  border-right: 1px solid color-mix(in srgb, var(--paper) 44%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--paper) 44%, transparent);
+  display: flex;
+  flex-direction: column;
+}
+.bio-crossing-grid article:nth-child(1) { background: var(--blue); }
+.bio-crossing-grid article:nth-child(2) { background: var(--teal); }
+.bio-crossing-grid article:nth-child(3) { background: var(--magenta); }
+.bio-crossing-grid article:nth-child(4) { background: var(--coral); }
+.bio-crossing-grid article > span { font-size: 10px; }
+.bio-crossing-grid h3 {
+  margin: auto 0 18px;
+  font-family: var(--serif);
+  font-size: clamp(44px, 5vw, 80px);
+  line-height: .9;
+  font-weight: 520;
+  letter-spacing: -.05em;
+}
+.bio-crossing-grid p { max-width: 520px; margin: 0; font-size: 18px; }
+
+.bio-facts { padding-block: clamp(80px, 11vw, 166px); }
+.bio-facts-head {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 96px);
+  margin-bottom: clamp(62px, 8vw, 110px);
+}
+.bio-facts-head > span { padding-top: 8px; font-size: 10px; color: var(--muted); }
+.bio-facts-head h2 { max-width: 980px; }
+.bio-fact-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(44px, 7vw, 120px);
+}
+.bio-fact-list {
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--ink);
+}
+.bio-fact-list li {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 20px;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--line);
+}
+.bio-fact-list span { font: 10px/1.4 var(--mono); color: var(--muted); }
+.bio-fact-list strong { font-size: 17px; line-height: 1.35; }
+
+.bio-language-wrap { background: var(--yellow); border-block: 1px solid var(--ink); }
+.bio-language {
+  padding-block: clamp(70px, 9vw, 132px);
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: clamp(30px, 6vw, 96px);
+}
+.bio-language > span { padding-top: 8px; font-size: 10px; }
+.bio-language p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(46px, 6vw, 92px);
+  line-height: .95;
+  letter-spacing: -.045em;
+}
+
+@media (max-width: 900px) {
+  .trajectory-crossings { grid-column: 2; }
+  .trajectory-crossings > div { grid-template-columns: 88px 1fr; gap: 12px 18px; }
+  .trajectory-crossings p { grid-column: 2; }
+
+  .bio-hero { min-height: auto; padding-block: 34px 72px; }
+  .bio-hero-top { margin-bottom: 72px; }
+  .bio-title { font-size: clamp(64px, 18vw, 98px); margin-bottom: 64px; }
+  .bio-intro-grid { grid-template-columns: 1fr; gap: 38px; }
+  .bio-lead { font-size: clamp(27px, 7vw, 40px); }
+
+  .bio-manifesto,
+  .bio-path-heading,
+  .bio-path-item,
+  .bio-crossings-head,
+  .bio-facts-head,
+  .bio-language {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .bio-manifesto { min-height: auto; }
+  .bio-manifesto p { font-size: clamp(48px, 13vw, 76px); }
+  .bio-path-item { padding-left: 18px; }
+  .bio-path-year { padding-top: 0; }
+  .bio-crossing-grid { grid-template-columns: 1fr; }
+  .bio-crossing-grid article { min-height: 250px; }
+  .bio-fact-columns { grid-template-columns: 1fr; gap: 70px; }
+  .bio-language p { font-size: clamp(44px, 12vw, 68px); }
+}
+
+@media (max-width: 560px) {
+  .bio-fact-list li { grid-template-columns: 76px minmax(0, 1fr); gap: 14px; }
+}
