@@ -12,30 +12,29 @@ Sitio personal de Dannae Abdalla.
 
 ## Desarrollo local sin instalar Node/npm
 
-El `Makefile` puede ejecutar el proyecto dentro de Podman o Docker.
+El `Makefile` detecta Podman o Docker automáticamente.
 
 ```bash
 make lock
 make dev
 ```
 
-Para Docker:
+Se puede forzar el runtime cuando haga falta:
 
 ```bash
-make RUNTIME=docker lock
 make RUNTIME=docker dev
 ```
 
 Abrir: http://localhost:4321
 
-El volumen `dannae-node-modules` mantiene `node_modules` fuera del árbol del proyecto.
+El volumen `dannae-node-modules` mantiene `node_modules` fuera del árbol del proyecto. La telemetría de Astro queda deshabilitada dentro de los contenedores.
 
 ## Build reproducible
 
 El repositorio debe incluir `package-lock.json`.
 
 ```bash
-make RUNTIME=docker build
+make build
 ```
 
 El build genera contenido estático en `dist/`.

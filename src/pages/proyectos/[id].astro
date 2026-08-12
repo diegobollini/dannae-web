@@ -3,25 +3,80 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const projects = await getCollection('proyectos');
-  return projects.map((project) => ({ params: { id: project.id }, props: { project } }));
+  const projects = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
+  return projects.map((project, index) => ({
+    params: { id: project.id },
+    props: {
+      project,
+      nextProject: projects[(index + 1) % projects.length]
+    }
+  }));
 }
 
-const { project } = Astro.props;
+const { project, nextProject } = Astro.props;
 const { Content } = await render(project);
+const hasReferenceVisual = project.id === 'subversion-feminista';
 ---
 <BaseLayout title={`${project.data.title} — Dannae Abdalla`} description={project.data.summary}>
-  <article class="container page-shell">
-    <p class="page-kicker">Proyecto · {project.data.period}</p>
-    <h1 class="page-title">{project.data.title}</h1>
-    <p class="page-lead">{project.data.summary}</p>
-    <div class="detail-grid">
-      <aside class="detail-meta">
-        <strong>Rol</strong>
-        <ul>{project.data.role.map((item) => <li>{item}</li>)}</ul>
-        {project.data.metrics.length > 0 && <><strong>Datos</strong><ul>{project.data.metrics.map((item) => <li>{item}</li>)}</ul></>}
+  <article class="project-detail" data-accent={project.data.accent}>
+    <header class="container detail-hero">
+      <div class="detail-hero-top mono">
+        <a href="/#proyectos">← Proyectos</a>
+        <span>{project.data.period}</span>
+      </div>
+
+      <p class="page-kicker">{project.data.eyebrow}</p>
+      <h1 class="detail-title">{project.data.title}</h1>
+
+      <div class="detail-intro-grid">
+        <p class="detail-summary">{project.data.summary}</p>
+        <div class="detail-roles">
+          <span class="meta-label mono">Rol</span>
+          <ul>{project.data.role.map((item) => <li>{item}</li>)}</ul>
+        </div>
+      </div>
+    </header>
+
+    {project.data.metrics.length > 0 && (
+      <section class="container project-metric-strip" aria-label="Datos del proyecto">
+        {project.data.metrics.map((item, index) => (
+          <div class="project-metric-card">
+            <span class="mono">0{index + 1}</span>
+            <strong>{item}</strong>
+          </div>
+        ))}
+      </section>
+    )}
+
+    <section class="container detail-body-grid">
+      <aside class="detail-rail">
+        <span class="meta-label mono">Proyecto</span>
+        <p>{project.data.period}</p>
+        <p class="detail-rail-note">Gestión cultural · producción · articulación · evaluación</p>
       </aside>
-      <div class="prose"><Content /></div>
-    </div>
+
+      <div class="prose prose-project"><Content /></div>
+
+      {hasReferenceVisual && (
+        <figure class="detail-reference-visual">
+          <img
+            src="/images/reference/murga-aquelarre-santa-fe-2017.webp"
+            alt="Integrante de una murga de mujeres de Santa Fe preparándose el maquillaje escénico"
+            loading="lazy"
+          />
+          <figcaption>
+            Imagen de referencia visual. No corresponde al proyecto. <a href="/creditos/">Créditos →</a>
+          </figcaption>
+        </figure>
+      )}
+    </section>
+
+    <nav class="container archive-next" aria-label="Siguiente proyecto">
+      <span class="mono">Siguiente proyecto</span>
+      <a href={`/proyectos/${nextProject.id}/`}>
+        <strong>{nextProject.data.title}</strong>
+        <b>→</b>
+      </a>
+    </nav>
   </article>
 </BaseLayout>

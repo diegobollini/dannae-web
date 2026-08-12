@@ -3,24 +3,60 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const texts = await getCollection('textos');
-  return texts.map((text) => ({ params: { id: text.id }, props: { text } }));
+  const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.data.order);
+  return texts.map((text, index) => ({
+    params: { id: text.id },
+    props: {
+      text,
+      nextText: texts[(index + 1) % texts.length]
+    }
+  }));
 }
 
-const { text } = Astro.props;
+const { text, nextText } = Astro.props;
 const { Content } = await render(text);
 ---
 <BaseLayout title={`${text.data.title} — Dannae Abdalla`} description={text.data.summary}>
-  <article class="container page-shell">
-    <p class="page-kicker">{text.data.type} · {text.data.year}</p>
-    <h1 class="page-title">{text.data.title}</h1>
-    <p class="page-lead">{text.data.summary}</p>
-    <div class="detail-grid">
-      <aside class="detail-meta">
-        <strong>Tipo</strong><p>{text.data.type}</p>
-        {text.data.publication && <><strong>Publicación</strong><p>{text.data.publication}</p></>}
+  <article class="text-detail">
+    <header class="container text-detail-hero">
+      <div class="detail-hero-top mono">
+        <a href="/#textos">← Textos</a>
+        <span>{text.data.year}</span>
+      </div>
+
+      <div class="text-detail-heading">
+        <p class="page-kicker">{text.data.type}</p>
+        <h1 class="text-detail-title">{text.data.title}</h1>
+      </div>
+
+      <div class="text-detail-intro">
+        <p class="detail-summary">{text.data.summary}</p>
+        <div class="publication-meta">
+          <span class="meta-label mono">Publicación</span>
+          <p>{text.data.publication ?? 'Ficha editorial en preparación'}</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="text-detail-rule"></div>
+
+    <section class="container text-reading-grid">
+      <aside class="reading-rail mono">
+        <span>{text.data.type}</span>
+        <span>{text.data.year}</span>
+        <span>Archivo / textos</span>
       </aside>
-      <div class="prose"><Content /></div>
-    </div>
+
+      <div class="prose prose-reading"><Content /></div>
+
+    </section>
+
+    <nav class="container archive-next archive-next-dark" aria-label="Siguiente texto">
+      <span class="mono">Siguiente texto</span>
+      <a href={`/textos/${nextText.id}/`}>
+        <strong>{nextText.data.title}</strong>
+        <b>→</b>
+      </a>
+    </nav>
   </article>
 </BaseLayout>

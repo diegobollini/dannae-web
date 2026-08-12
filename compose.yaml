@@ -2,6 +2,8 @@ services:
   web:
     image: docker.io/library/node:24-bookworm-slim
     working_dir: /app
+    environment:
+      ASTRO_TELEMETRY_DISABLED: "1"
     ports:
       - "4321:4321"
     volumes:
