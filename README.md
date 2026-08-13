@@ -67,3 +67,9 @@ Las fechas sólo se muestran cuando están respaldadas por el CV o la documentac
 
 La interfaz incorpora estados de foco visibles, navegación con acentos cromáticos, transiciones progresivas y soporte para `prefers-reduced-motion`.
 No se agrega JavaScript cliente ni ninguna dependencia.
+
+## v0.7.1 · Header full-width
+
+El fondo, blur y borde del header sticky ocupan todo el viewport.
+El contenido mantiene el ancho editorial mediante un wrapper interno `.container`.
+

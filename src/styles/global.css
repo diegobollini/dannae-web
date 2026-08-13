@@ -34,16 +34,20 @@ img { max-width: 100%; display: block; }
 .eyebrow { margin: 0 0 18px; font: 700 11px/1.2 var(--mono); letter-spacing: .09em; text-transform: uppercase; }
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  border-bottom: 1px solid var(--ink);
+  background: color-mix(in srgb, var(--paper) 93%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.site-header-inner {
   min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  border-bottom: 1px solid var(--ink);
-  background: color-mix(in srgb, var(--paper) 93%, transparent);
-  backdrop-filter: blur(12px);
 }
 .brand { font-weight: 900; letter-spacing: -.035em; }
 .site-nav { display: flex; gap: 24px; font-size: 13px; }
@@ -267,7 +271,7 @@ h3 { margin-bottom: 6px; font-size: clamp(22px, 2vw, 30px); letter-spacing: -.03
 .credits-list h2 { font-size: clamp(28px, 3vw, 44px); }
 
 @media (max-width: 900px) {
-  .site-header { min-height: 62px; }
+  .site-header-inner { min-height: 62px; }
   .site-nav { display: none; }
   .section-grid { grid-template-columns: 28px minmax(0, 1fr); gap: 13px; padding-block: 58px; }
   .hero {
@@ -557,7 +561,7 @@ h3 { margin-bottom: 6px; font-size: clamp(22px, 2vw, 30px); letter-spacing: -.03
 .archive-next-dark > span { color: color-mix(in srgb, var(--paper) 56%, transparent); }
 
 @media (max-width: 900px) {
-  .site-header {
+  .site-header-inner {
     min-height: auto;
     padding-block: 13px 10px;
     flex-direction: column;

@@ -31,15 +31,17 @@ const isCredits = pathname.startsWith('/creditos');
   <body class={bodyClass}>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <header class="site-header container">
-      <a class="brand" href="/" aria-label="Dannae Abdalla — inicio">DANNAE ABDALLA</a>
-      <nav class="site-nav" aria-label="Principal">
-        <a data-nav="blue" href="/#proyectos">Proyectos</a>
-        <a data-nav="magenta" href="/#textos">Textos</a>
-        <a data-nav="teal" href="/bio/#trayectoria">Trayectoria</a>
-        <a data-nav="yellow" href="/bio/" aria-current={isBio ? 'page' : undefined}>Bio</a>
-        <a data-nav="coral" href="/#contacto">Contacto</a>
-      </nav>
+    <header class="site-header">
+      <div class="site-header-inner container">
+        <a class="brand" href="/" aria-label="Dannae Abdalla — inicio">DANNAE ABDALLA</a>
+        <nav class="site-nav" aria-label="Principal">
+          <a data-nav="blue" href="/#proyectos">Proyectos</a>
+          <a data-nav="magenta" href="/#textos">Textos</a>
+          <a data-nav="teal" href="/bio/#trayectoria">Trayectoria</a>
+          <a data-nav="yellow" href="/bio/" aria-current={isBio ? 'page' : undefined}>Bio</a>
+          <a data-nav="coral" href="/#contacto">Contacto</a>
+        </nav>
+      </div>
     </header>
 
     <main id="contenido"><slot /></main>
