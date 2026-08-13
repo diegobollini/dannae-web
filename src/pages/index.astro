@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 const projects = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
 const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.data.order);
 const featuredText = texts.find((text) => text.data.featured) ?? texts[0];
-const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
+const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id).slice(0, 6);
 ---
 <BaseLayout bodyClass="home-page">
   <section class="hero container">

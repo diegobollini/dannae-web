@@ -13,8 +13,34 @@ featured: true
 order: 2
 accent: "yellow"
 ---
-La coordinación implicó articular grupos seleccionados, espacios culturales, secretarías de cultura y presidencias comunales de distintas localidades de Santa Fe.
+Argentina Florece permite mirar la gestión cultural en escala territorial: una política pública que debe convertirse en programación concreta, circulación artística y articulación entre múltiples actores distribuidos en la provincia de Santa Fe.
 
-## Escala territorial
+## De una política pública a una función concreta
 
-El proyecto permite mostrar una dimensión central del trabajo de gestión: convertir una política cultural en programación concreta distribuida territorialmente.
+La coordinación general implicó trabajar con grupos seleccionados, espacios culturales, secretarías de cultura y presidencias comunales de distintas localidades.
+
+Cada función requiere que una política diseñada a escala nacional encuentre condiciones materiales para suceder en un territorio específico.
+
+Eso significa coordinar agendas, espacios, artistas, instituciones y recursos sin perder de vista el sentido general del programa.
+
+## Más de 300 funciones
+
+La programación provincial superó las **300 funciones**.
+
+La cifra muestra escala, pero también una trama operativa: cientos de acuerdos y decisiones distribuidas en diferentes localidades para hacer circular producciones escénicas y sostener una política de alcance federal.
+
+## Articulación territorial
+
+La gestión se construyó mediante vínculos entre niveles institucionales diferentes.
+
+Grupos artísticos, espacios culturales, gobiernos locales y el Instituto Nacional del Teatro debían encontrarse en una misma programación.
+
+La tarea de coordinación consistió precisamente en construir esos puentes y convertir una estructura institucional amplia en experiencias culturales situadas.
+
+## Una experiencia dentro del Instituto Nacional del Teatro
+
+Argentina Florece forma parte de un recorrido de producción ejecutiva y coordinación desarrollado en el Instituto Nacional del Teatro entre 2022 y 2024.
+
+En ese período también hubo participación en las Fiestas Provinciales de Teatro de Santa Fe y en programas como **Teatros por la Democracia**, **Intervenciones Escénicas a Cielo Abierto** y **Teatrines**.
+
+El eje común fue la articulación con grupos y elencos y la implementación territorial de políticas públicas de fomento y federalización del teatro.

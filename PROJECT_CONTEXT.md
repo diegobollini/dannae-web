@@ -139,6 +139,8 @@ A partir de v0.10 se preparan páginas reales, pero explícitamente provisionale
 - Hacer que las cosas sucedan
 - La constelación como política del encuentro
 - Disputar la métrica: del rendimiento al disfrute
+- Del hartazgo al grito organizado
+- Sostener la vida también es gestionar
 
 Estas páginas no deben presentarse como artículos publicados previamente. Son **selecciones editoriales de la tesina**, preparadas para dar volumen real al sitio y para discutir luego con Dannae.
 
@@ -545,6 +547,8 @@ Hitos relevantes:
 - v0.8: favicon y metadata;
 - v0.9: archivos `/proyectos/` y `/textos/`;
 - v0.10: volumen editorial con fragmentos reales de la tesina + contexto integral del proyecto.
+- v0.10.1: hotfix de barra vertical decorativa en páginas de proyecto; se mueve al gutter exterior.
+- v0.11: ampliación de los cuatro proyectos + dos nuevas selecciones de tesina + referencias visuales en todas las fichas de proyecto.
 
 Último commit confirmado por Diego antes de preparar v0.10:
 
@@ -552,11 +556,55 @@ Hitos relevantes:
 1868f32 feat: add project and editorial archives
 ```
 
-Se preparó además una capa “v1.0 release candidate” de QA/metadata, pero su aplicación no quedó confirmada en la conversación. **El overlay v0.10 se construye de forma acumulativa sobre v0.9 e incluye ese hardening**, para no depender de que haya sido aplicado por separado.
+El overlay v0.10 incorporó también el hardening preparado previamente como release candidate.
+
+Después de v0.10 se detectó un bug visual en las páginas de proyecto: la barra vertical de acento compartía el borde izquierdo del contenido y se superponía con texto tanto en desktop como en mobile. Diego validó visualmente el fix moviendo la barra al gutter exterior. v0.11 incluye ese cambio para mantener el estado acumulativo.
+
 
 ---
 
-## 16. Criterio para próximas iteraciones
+## 16. Estado editorial después de v0.11
+
+### Proyectos
+
+Los cuatro proyectos dejaron de ser fichas mínimas:
+
+- **Provocaciones Escénicas**: 3 ediciones, 17 funciones, 600+ espectadores, 180 cuestionarios, 11 mediaciones, articulación institucional y formación de estudiantes.
+- **Argentina Florece**: 300+ funciones, coordinación provincial y articulación territorial dentro del Instituto Nacional del Teatro.
+- **SubVersión Feminista**: origen, primera edición 2023, evaluación, segunda edición, accesibilidad, Otras Tramas, Arde la Escena y relación con la tesina.
+- **La Comedia de Hacer Arte**: gestión, producción, administración, protocolo ante violencias de género y actuación.
+
+Todas las fichas usan fotografías abiertas únicamente como **referencias contextuales** y lo indican en su pie de imagen.
+
+### Textos derivados de tesina
+
+Hay cinco selecciones editoriales provisionales:
+
+1. Hacer que las cosas sucedan.
+2. La constelación como política del encuentro.
+3. Disputar la métrica: del rendimiento al disfrute.
+4. Del hartazgo al grito organizado.
+5. Sostener la vida también es gestionar.
+
+Estas piezas son adaptaciones editoriales para prototipado. No deben presentarse como artículos publicados previamente ni como versiones definitivas autorizadas por Dannae.
+
+La home muestra una selección acotada de textos. `/textos/` conserva el archivo completo, permitiendo que el volumen editorial crezca sin sobrecargar la portada.
+
+### Bug de barra de acento
+
+Regla correcta:
+
+```css
+.project-detail .detail-hero::before {
+  left: calc(-1 * var(--gutter));
+}
+```
+
+No volver a colocarla en `left: 0`, porque invade el contenido en varios anchos de viewport.
+
+---
+
+## 17. Criterio para próximas iteraciones
 
 No sumar features por inercia.
 

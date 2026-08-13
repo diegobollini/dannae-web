@@ -100,3 +100,20 @@ Se incorporan tres selecciones editoriales derivadas de capítulos existentes de
 No son artículos definitivos ni reemplazan la tesina. Funcionan como piezas de prototipado con contenido real, sujetas a revisión de Dannae.
 
 También se agrega `PROJECT_CONTEXT.md` como memoria integral de decisiones, fuentes, restricciones y estado del proyecto para handoff entre sesiones/modelos.
+
+## v0.10.1 — hotfix barra de acento
+
+La barra vertical de las páginas de proyecto se mueve al gutter exterior con `left: calc(-1 * var(--gutter))`.
+No debe invadir título, metadatos ni cuerpo en desktop o mobile.
+
+## v0.11 — densidad de contenido
+
+Se amplían los cuatro proyectos con contenido respaldado por CV y tesina.
+
+Se agregan dos nuevas selecciones editoriales provisionales de la tesina:
+
+- `Del hartazgo al grito organizado`;
+- `Sostener la vida también es gestionar`.
+
+Las cuatro páginas de proyecto incorporan una imagen abierta de referencia, siempre identificada como material contextual y no como documentación del proyecto.
+La home limita su selección de textos a seis piezas y deriva el archivo completo a `/textos/`.

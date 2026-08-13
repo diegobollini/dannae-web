@@ -15,7 +15,29 @@ export async function getStaticPaths() {
 
 const { project, nextProject } = Astro.props;
 const { Content } = await render(project);
-const hasReferenceVisual = project.id === 'subversion-feminista';
+const referenceVisuals: Record<string, { src: string; alt: string; caption: string }> = {
+  'provocaciones-escenicas': {
+    src: '/images/reference/teatro-el-circulo-rosario.webp',
+    alt: 'Fachada del Teatro El Círculo de Rosario',
+    caption: 'Referencia visual del campo escénico rosarino. No corresponde al programa Provocaciones Escénicas.'
+  },
+  'argentina-florece': {
+    src: '/images/reference/murga-aquelarre-santa-fe-2017.webp',
+    alt: 'Integrante de una murga de mujeres de Santa Fe durante una actividad escénica',
+    caption: 'Referencia visual de producción escénica en Santa Fe. No corresponde al programa Argentina Florece.'
+  },
+  'subversion-feminista': {
+    src: '/images/reference/enm-rosario-2016.webp',
+    alt: 'Encuentro Nacional de Mujeres realizado en Rosario en 2016',
+    caption: 'Referencia visual del entramado feminista rosarino. No corresponde al Festival SubVersión Feminista.'
+  },
+  'la-comedia-de-hacer-arte': {
+    src: '/images/reference/performance-flora-tristan-2025.webp',
+    alt: 'Performance feminista realizada por el Centro de la Mujer Peruana Flora Tristán',
+    caption: 'Referencia visual de escena y acción cultural feminista. No corresponde a La Comedia de Hacer Arte.'
+  }
+};
+const referenceVisual = referenceVisuals[project.id];
 ---
 <BaseLayout title={`${project.data.title} — Dannae Abdalla`} description={project.data.summary}>
   <article class="project-detail" data-accent={project.data.accent}>
@@ -57,15 +79,11 @@ const hasReferenceVisual = project.id === 'subversion-feminista';
 
       <div class="prose prose-project"><Content /></div>
 
-      {hasReferenceVisual && (
+      {referenceVisual && (
         <figure class="detail-reference-visual">
-          <img
-            src="/images/reference/murga-aquelarre-santa-fe-2017.webp"
-            alt="Integrante de una murga de mujeres de Santa Fe preparándose el maquillaje escénico"
-            loading="lazy"
-          />
+          <img src={referenceVisual.src} alt={referenceVisual.alt} loading="lazy" />
           <figcaption>
-            Imagen de referencia visual. No corresponde al proyecto. <a href="/creditos/">Créditos →</a>
+            {referenceVisual.caption} <a href="/creditos/">Créditos →</a>
           </figcaption>
         </figure>
       )}
