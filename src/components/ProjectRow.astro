@@ -12,10 +12,10 @@ const { index, id, title, eyebrow, period, metrics, accent } = Astro.props;
 ---
 <a class="project-row" data-accent={accent} href={`/proyectos/${id}/`}>
   <div class="project-index">{String(index).padStart(2, '0')}</div>
-  <div>
+  <div class="project-copy">
     <h3>{title}</h3>
     <p>{eyebrow}</p>
   </div>
   <div class="project-metrics">{metrics.length ? metrics.slice(0, 2).join(' · ') : period}</div>
-  <div aria-hidden="true">→</div>
+  <div class="project-arrow" aria-hidden="true">→</div>
 </a>

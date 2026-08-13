@@ -4,12 +4,18 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  bodyClass?: string;
 }
 
 const {
   title = 'Dannae Abdalla',
-  description = 'Gestión cultural, artes escénicas, investigación y feminismos.'
+  description = 'Gestión cultural, artes escénicas, investigación y feminismos.',
+  bodyClass = ''
 } = Astro.props;
+
+const pathname = Astro.url.pathname;
+const isBio = pathname.startsWith('/bio');
+const isCredits = pathname.startsWith('/creditos');
 ---
 <!doctype html>
 <html lang="es">
@@ -19,24 +25,32 @@ const {
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#f0e9dc" />
+    <meta name="color-scheme" content="light" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class={bodyClass}>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
     <header class="site-header container">
-      <a class="brand" href="/">DANNAE ABDALLA</a>
+      <a class="brand" href="/" aria-label="Dannae Abdalla — inicio">DANNAE ABDALLA</a>
       <nav class="site-nav" aria-label="Principal">
-        <a href="/#proyectos">Proyectos</a>
-        <a href="/#textos">Textos</a>
-        <a href="/bio/#trayectoria">Trayectoria</a>
-        <a href="/bio/">Bio</a>
-        <a href="/#contacto">Contacto</a>
+        <a data-nav="blue" href="/#proyectos">Proyectos</a>
+        <a data-nav="magenta" href="/#textos">Textos</a>
+        <a data-nav="teal" href="/bio/#trayectoria">Trayectoria</a>
+        <a data-nav="yellow" href="/bio/" aria-current={isBio ? 'page' : undefined}>Bio</a>
+        <a data-nav="coral" href="/#contacto">Contacto</a>
       </nav>
     </header>
+
     <main id="contenido"><slot /></main>
+
     <footer class="site-footer container">
       <span>Dannae Abdalla · Rosario</span>
-      <span><a href="/creditos/">Créditos visuales</a> · <a href="https://github.com/diegobollini/dannae-web">Código fuente ↗</a></span>
+      <span>
+        <a href="/creditos/" aria-current={isCredits ? 'page' : undefined}>Créditos visuales</a>
+        ·
+        <a href="https://github.com/diegobollini/dannae-web">Código fuente ↗</a>
+      </span>
     </footer>
   </body>
 </html>

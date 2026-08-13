@@ -8,7 +8,7 @@ const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.da
 const featuredText = texts.find((text) => text.data.featured) ?? texts[0];
 const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
 ---
-<BaseLayout>
+<BaseLayout bodyClass="home-page">
   <section class="hero container">
     <div class="hero-index mono">00 / ROSARIO</div>
     <div class="hero-main">
@@ -16,8 +16,8 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       <h1>Hacer que las cosas sucedan.</h1>
       <p class="lead">Gestión, investigación y producción cultural en la intersección entre artes escénicas, políticas culturales y feminismos.</p>
       <div class="hero-actions">
-        <a class="text-link" href="#proyectos">Proyectos ↓</a>
-        <a class="text-link" href="#textos">Textos ↓</a>
+        <a class="text-link accent-link accent-blue" href="#proyectos">Proyectos ↓</a>
+        <a class="text-link accent-link accent-magenta" href="#textos">Textos ↓</a>
       </div>
     </div>
 
@@ -64,7 +64,7 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
     <div class="statement-side">
       <p>Una práctica situada entre la gestión cultural, las artes escénicas, la investigación y los feminismos.</p>
       <p class="mono statement-note">hacer / pensar / producir / evaluar / volver a hacer</p>
-      <a class="text-link" href="/bio/">Leer bio y trayectoria →</a>
+      <a class="text-link accent-link accent-teal" href="/bio/">Leer bio y trayectoria →</a>
     </div>
   </section>
 
@@ -133,7 +133,7 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
     <div class="section-title">
       <p class="eyebrow">Trayectoria</p>
       <h2>De la escena a la gestión. Del hacer a la investigación.</h2>
-      <a class="text-link trajectory-link" href="/bio/">Bio completa →</a>
+      <a class="text-link accent-link accent-yellow trajectory-link" href="/bio/">Bio completa →</a>
     </div>
     <div class="trajectory-crossings">
       <div><span class="mono">2006—2009</span><strong>Escena</strong><p>Formación actoral.</p></div>

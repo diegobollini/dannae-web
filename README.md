@@ -62,3 +62,8 @@ No implican participación de Dannae en las actividades fotografiadas.
 
 La bio se plantea como un relato de cruces entre escena, producción, gestión e investigación.
 Las fechas sólo se muestran cuando están respaldadas por el CV o la documentación de trabajo.
+
+## v0.7 · Sistema de interacción
+
+La interfaz incorpora estados de foco visibles, navegación con acentos cromáticos, transiciones progresivas y soporte para `prefers-reduced-motion`.
+No se agrega JavaScript cliente ni ninguna dependencia.

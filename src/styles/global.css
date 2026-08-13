@@ -867,3 +867,345 @@ h3 { margin-bottom: 6px; font-size: clamp(22px, 2vw, 30px); letter-spacing: -.03
 @media (max-width: 560px) {
   .bio-fact-list li { grid-template-columns: 76px minmax(0, 1fr); gap: 14px; }
 }
+
+/* v0.7 — sistema de interacción y coherencia global */
+
+/* Los anclajes internos no quedan ocultos por el header sticky. */
+#proyectos,
+#textos,
+#bio,
+#trayectoria,
+#contacto {
+  scroll-margin-top: 112px;
+}
+
+/* Foco visible consistente. No depende del color de cada bloque. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 4px;
+}
+.editorial-band :where(a, button, [tabindex]):focus-visible,
+.bio-crossings-wrap :where(a, button, [tabindex]):focus-visible,
+.text-detail :where(a, button, [tabindex]):focus-visible {
+  outline-color: var(--paper);
+}
+
+/* Header: los cinco destinos usan la misma lógica cromática del sitio. */
+.brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+}
+.brand::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.brand:hover { text-decoration: none; }
+
+.site-nav a {
+  --nav-accent: var(--ink);
+  position: relative;
+  padding-block: 8px;
+  font-weight: 650;
+}
+.site-nav a[data-nav='blue'] { --nav-accent: var(--blue); }
+.site-nav a[data-nav='magenta'] { --nav-accent: var(--magenta); }
+.site-nav a[data-nav='teal'] { --nav-accent: var(--teal); }
+.site-nav a[data-nav='yellow'] { --nav-accent: var(--yellow); }
+.site-nav a[data-nav='coral'] { --nav-accent: var(--coral); }
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 3px;
+  background: var(--nav-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.site-nav a:hover,
+.site-nav a[aria-current='page'] {
+  text-decoration: none;
+}
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after,
+.site-nav a[aria-current='page']::after {
+  transform: scaleX(1);
+}
+
+/* Links editoriales: el subrayado también funciona como código de color. */
+.accent-link {
+  --link-accent: var(--ink);
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  text-decoration: none;
+}
+.accent-blue { --link-accent: var(--blue); }
+.accent-magenta { --link-accent: var(--magenta); }
+.accent-teal { --link-accent: var(--teal); }
+.accent-yellow { --link-accent: var(--yellow); }
+.accent-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -.25em;
+  height: 4px;
+  background: var(--link-accent);
+  transform: scaleX(.2);
+  transform-origin: left;
+}
+.accent-link:hover { text-decoration: none; }
+.accent-link:hover::after,
+.accent-link:focus-visible::after { transform: scaleX(1); }
+
+/* Hero: la foto sigue siendo documento, pero responde como parte del sistema. */
+.hero-board {
+  isolation: isolate;
+}
+.hero-board-photo img {
+  transform: scale(1.015);
+}
+.hero-board-copy span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Proyectos: movimiento sólo en jerarquía y flecha, no en toda la tarjeta. */
+.project-row:hover,
+.project-row:focus-visible {
+  text-decoration: none;
+}
+.project-copy h3 {
+  transition: color .18s ease;
+}
+.project-arrow {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform .18s ease;
+}
+.project-row:hover .project-copy h3,
+.project-row:focus-visible .project-copy h3 {
+  color: var(--accent);
+}
+.project-row:hover .project-arrow,
+.project-row:focus-visible .project-arrow {
+  transform: translateX(7px);
+}
+
+/* Texto destacado: mantiene el bloque estable; la respuesta ocurre dentro. */
+.featured-text strong,
+.featured-text-arrow {
+  transition: transform .2s ease;
+}
+.featured-text:hover strong,
+.featured-text:focus-visible strong {
+  transform: translateX(8px);
+}
+.featured-text:hover .featured-text-arrow,
+.featured-text:focus-visible .featured-text-arrow {
+  transform: translateX(8px);
+}
+
+.text-row {
+  position: relative;
+}
+.text-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  opacity: 0;
+  pointer-events: none;
+}
+.text-row > * {
+  position: relative;
+  z-index: 1;
+}
+.editorial-list .text-row:hover,
+.editorial-list .text-row:focus-visible {
+  text-decoration: none;
+}
+.editorial-list .text-row::before {
+  background: var(--paper);
+}
+.editorial-list .text-row:hover::before,
+.editorial-list .text-row:focus-visible::before {
+  opacity: .08;
+}
+.editorial-list .text-row b {
+  transition: transform .18s ease;
+}
+.editorial-list .text-row:hover b,
+.editorial-list .text-row:focus-visible b {
+  transform: translateX(6px);
+}
+
+/* Datos: cada cifra se comporta como pieza gráfica y mantiene foco de teclado. */
+.metric {
+  position: relative;
+  overflow: hidden;
+  outline-offset: -6px;
+}
+.metric::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 8px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: .85;
+}
+.metric:hover::after {
+  transform: scaleX(1);
+}
+.metric strong {
+  transition: transform .2s ease;
+}
+.metric:hover strong {
+  transform: translateY(-5px);
+}
+
+/* Escena: recuperar saturación al interactuar refuerza que la imagen es una pausa. */
+.scene-photo img {
+  transition: filter .25s ease, transform .25s ease;
+}
+.scene-photo:hover img {
+  filter: saturate(.95) contrast(1.04);
+  transform: scale(.992);
+}
+
+/* Trayectoria: cada cruce toma un acento, sin convertirlo en tarjetas. */
+.trajectory-crossings > div {
+  --cross-accent: var(--blue);
+  position: relative;
+}
+.trajectory-crossings > div:nth-child(2) { --cross-accent: var(--yellow); }
+.trajectory-crossings > div:nth-child(3) { --cross-accent: var(--magenta); }
+.trajectory-crossings > div:nth-child(4) { --cross-accent: var(--teal); }
+.trajectory-crossings > div::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 -14px;
+  width: 5px;
+  background: var(--cross-accent);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+.trajectory-crossings > div:hover::before { transform: scaleY(1); }
+
+/* Contacto: grande y directo, sin botón artificial. */
+.contact-links a {
+  width: fit-content;
+  position: relative;
+  transition: transform .18s ease;
+}
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  text-decoration: none;
+  transform: translateX(8px);
+}
+.contact-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -.15em;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.contact-links a:hover::after,
+.contact-links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.site-footer a[aria-current='page'] {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* Navegación entre documentos: misma respuesta tanto en proyectos como textos. */
+.archive-next a b {
+  transition: transform .2s ease;
+}
+.archive-next a:hover b,
+.archive-next a:focus-visible b {
+  transform: translateX(9px);
+}
+.archive-next a:hover strong,
+.archive-next a:focus-visible strong {
+  text-decoration: underline;
+  text-decoration-thickness: .045em;
+  text-underline-offset: .12em;
+}
+
+/* Transiciones nativas entre documentos: mejora progresiva, cero JS. */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+
+  .brand::after,
+  .site-nav a::after,
+  .accent-link::after,
+  .metric::after,
+  .trajectory-crossings > div::before {
+    transition: transform .2s ease;
+  }
+
+  ::view-transition-old(root) {
+    animation: 120ms ease both fade-out;
+  }
+  ::view-transition-new(root) {
+    animation: 220ms ease both fade-in;
+  }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 900px) {
+  #proyectos,
+  #textos,
+  #bio,
+  #trayectoria,
+  #contacto {
+    scroll-margin-top: 108px;
+  }
+
+  .site-nav a { padding-block: 5px 9px; }
+  .site-nav a::after { bottom: 1px; }
+  .project-row:hover { padding-left: 14px; }
+  .trajectory-crossings > div::before { left: -9px; }
+}
