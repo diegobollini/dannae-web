@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import '../styles/release.css';
 
 interface Props {
   title?: string;
@@ -12,7 +13,6 @@ const {
   description = 'Gestión cultural, artes escénicas, investigación y feminismos.',
   bodyClass = ''
 } = Astro.props;
-
 const pathname = Astro.url.pathname;
 const isProjects = pathname.startsWith('/proyectos');
 const isTexts = pathname.startsWith('/textos');
@@ -21,6 +21,7 @@ const isCredits = pathname.startsWith('/creditos');
 const siteURL = Astro.site ?? new URL('https://dannaeabdalla.com.ar');
 const canonicalURL = new URL(pathname, siteURL);
 const socialImageURL = new URL('/social-card.png', siteURL);
+const themeColor = isTexts ? '#101315' : '#f0e9dc';
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -39,18 +40,16 @@ const personSchema = {
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Dannae Abdalla" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#f0e9dc" />
+    <meta name="theme-color" content={themeColor} />
     <meta name="color-scheme" content="light" />
-
     <link rel="canonical" href={canonicalURL.href} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
     <meta property="og:locale" content="es_AR" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Dannae Abdalla" />
@@ -58,10 +57,10 @@ const personSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:image" content={socialImageURL.href} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Dannae Abdalla — Hacer que las cosas sucedan." />
-
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -73,7 +72,6 @@ const personSchema = {
   </head>
   <body class={bodyClass}>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
     <header class="site-header">
       <div class="site-header-inner container">
         <a class="brand" href="/" aria-label="Dannae Abdalla — inicio">DANNAE ABDALLA</a>
@@ -86,7 +84,6 @@ const personSchema = {
         </nav>
       </div>
     </header>
-
     <main id="contenido"><slot /></main>
 
     <footer class="site-footer container">

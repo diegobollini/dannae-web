@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectRow from '../components/ProjectRow.astro';
 import { getCollection } from 'astro:content';
-
 const projects = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
 const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.data.order);
 const featuredText = texts.find((text) => text.data.featured) ?? texts[0];
@@ -20,7 +19,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
         <a class="text-link accent-link accent-magenta" href="#textos">Textos ↓</a>
       </div>
     </div>
-
     <div class="hero-board" aria-label="Composición gráfica conceptual">
       <div class="hero-board-copy">
         <span>gestión</span>
@@ -33,7 +31,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       <div class="hero-board-note mono">cultura / territorio / vínculos</div>
     </div>
   </section>
-
   <section id="proyectos" class="container section-grid ruled">
     <div class="section-number">01</div>
     <div class="section-title">
@@ -55,7 +52,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       <a class="archive-inline-link accent-link accent-blue" href="/proyectos/">Ver archivo de proyectos →</a>
     </div>
   </section>
-
   <section id="bio" class="container section-grid ruled statement-section">
     <div class="section-number">02</div>
     <div class="statement">
@@ -68,7 +64,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       <a class="text-link accent-link accent-teal" href="/bio/">Leer bio y trayectoria →</a>
     </div>
   </section>
-
   <section id="textos" class="editorial-band">
     <div class="container section-grid editorial-grid">
       <div class="section-number">03</div>
@@ -76,7 +71,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
         <p class="eyebrow">Textos e investigación</p>
         <h2>Pensar también es una forma de hacer.</h2>
       </div>
-
       {featuredText && (
         <a class="featured-text" href={`/textos/${featuredText.id}/`}>
           <span class="featured-text-meta mono">{featuredText.data.type} · {featuredText.data.year}</span>
@@ -85,7 +79,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
           <span class="featured-text-arrow">Leer →</span>
         </a>
       )}
-
       <div class="texts-list editorial-list">
         {secondaryTexts.map((text) => (
           <a href={`/textos/${text.id}/`} class="text-row">
@@ -99,7 +92,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       </div>
     </div>
   </section>
-
   <section class="container section-grid ruled metrics-section">
     <div class="section-number">04</div>
     <div class="section-title">
@@ -113,7 +105,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       <div class="metric metric-blue"><strong>30</strong><span>organizaciones articuladas<br />en Bacanal</span></div>
     </div>
   </section>
-
   <section class="container scene-editorial ruled">
     <div class="scene-index mono">05 / ESCENA</div>
     <div class="scene-title-wrap">
@@ -126,10 +117,8 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
     </figure>
     <div class="scene-copy">
       <p>Actuación, producción y gestión conviven dentro de una misma práctica.</p>
-      <p class="mono">La imagen es temporal. Sirve para probar ritmo, escala y color hasta definir el archivo visual definitivo.</p>
     </div>
   </section>
-
   <section id="trayectoria" class="container section-grid ruled trajectory-preview">
     <div class="section-number">06</div>
     <div class="section-title">
@@ -144,7 +133,6 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       <div><span class="mono">2018—2026</span><strong>Escritura</strong><p>Publicaciones, investigación y tesina.</p></div>
     </div>
   </section>
-
   <section id="contacto" class="contact-wrap">
     <div class="container section-grid contact-section">
       <div class="section-number">07</div>
@@ -155,7 +143,7 @@ const secondaryTexts = texts.filter((text) => text.id !== featuredText?.id);
       <div class="contact-links">
         <a href="mailto:dannaeabdalla@gmail.com">dannaeabdalla@gmail.com</a>
         <a href="https://www.instagram.com/alegremonton/" rel="me">Instagram ↗</a>
-        <a href="https://www.linkedin.com/in/dannae-abdalla-4208721b0/">LinkedIn ↗</a>
+        <a href="https://www.linkedin.com/in/dannae-abdalla-4208721b0/" rel="me">LinkedIn ↗</a>
       </div>
     </div>
   </section>

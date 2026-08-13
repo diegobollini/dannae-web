@@ -1,0 +1,77 @@
+/* v1.0 release candidate — QA responsive, accesibilidad y robustez.
+   Se mantiene separado para que los ajustes de cierre sean fáciles de revisar o revertir. */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  overflow-wrap: break-word;
+}
+
+/* Foco inequívoco sin depender sólo del color o del hover. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* El header debe seguir siendo opaco y legible si backdrop-filter no existe. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header { background: var(--paper); }
+}
+
+/* Los enlaces largos, especialmente el email, nunca fuerzan overflow horizontal. */
+.contact-links,
+.contact-links a,
+.site-footer span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Mejor superficie táctil manteniendo el header compacto. */
+@media (max-width: 900px) {
+  .site-nav {
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline proximity;
+  }
+
+  .site-nav a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  /* Evita que el último item quede pegado al borde al desplazar la navegación. */
+  .site-nav::after {
+    content: '';
+    flex: 0 0 1px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-actions {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+
+  .contact-links {
+    font-size: clamp(18px, 5.4vw, 22px);
+  }
+
+  .site-footer {
+    padding-block: 24px;
+  }
+}
+
+/* Evita animaciones de hover accidentales en dispositivos táctiles. */
+@media (hover: none) {
+  .project-row:hover { padding-left: 14px; background: transparent; }
+  .metric:hover::after { transform: scaleX(0); }
+  .metric:hover strong { transform: none; }
+  .scene-photo:hover img { filter: saturate(.68) contrast(1.08); transform: none; }
+  .trajectory-crossings > div:hover::before { transform: scaleY(0); }
+}
