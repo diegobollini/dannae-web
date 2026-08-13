@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dannae Abdalla">
+  <rect width="64" height="64" rx="10" fill="#101315"/>
+  <path fill="#f0e9dc" fill-rule="evenodd" d="M10 13h13c14 0 23 7 23 19s-9 19-23 19H10V13Zm11 9v20h2c7.4 0 11.5-3.5 11.5-10S30.4 22 23 22h-2Z"/>
+  <circle cx="52" cy="47" r="4.5" fill="#efb93d"/>
+</svg>

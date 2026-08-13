@@ -73,3 +73,9 @@ No se agrega JavaScript cliente ni ninguna dependencia.
 El fondo, blur y borde del header sticky ocupan todo el viewport.
 El contenido mantiene el ancho editorial mediante un wrapper interno `.container`.
 
+
+## v0.8 · Identidad mínima y metadata
+
+Se incorpora una marca `D.` como favicon, icono para iOS y tarjeta social.
+El `<head>` suma canonical, Open Graph, Twitter Card y datos estructurados básicos de `Person`.
+La tarjeta social no usa fotografías y mantiene la identidad gráfica del sitio.
