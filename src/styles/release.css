@@ -75,3 +75,67 @@ body {
   .scene-photo:hover img { filter: saturate(.68) contrast(1.08); transform: none; }
   .trajectory-crossings > div:hover::before { transform: scaleY(0); }
 }
+
+/* v0.10 — contenido editorial real */
+.prose-reading .article-figure,
+.prose-project .article-figure {
+  margin: clamp(42px, 7vw, 86px) 0;
+  max-width: 920px;
+}
+
+.article-figure img {
+  width: 100%;
+  max-height: 720px;
+  object-fit: cover;
+  border: 1px solid currentColor;
+}
+
+.article-figure-portrait {
+  max-width: 620px !important;
+}
+
+.article-figure-portrait img {
+  aspect-ratio: 3 / 4;
+}
+
+.article-figure-wide img {
+  aspect-ratio: 16 / 10;
+}
+
+.article-figure figcaption {
+  margin-top: 10px;
+  max-width: 760px;
+  font: 11px/1.45 var(--mono);
+  letter-spacing: .02em;
+  opacity: .7;
+}
+
+.article-figure figcaption a {
+  text-decoration: underline;
+  text-underline-offset: .16em;
+}
+
+.research-lines-linked li a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.research-lines-linked li a b {
+  flex: 0 0 auto;
+  font: 700 11px/1 var(--mono);
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .article-figure,
+  .article-figure-portrait {
+    max-width: none !important;
+  }
+
+  .research-lines-linked li a {
+    align-items: flex-start;
+  }
+}

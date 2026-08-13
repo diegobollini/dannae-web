@@ -88,3 +88,15 @@ Se agregan dos rutas de archivo de primer nivel:
 - `/textos/`: publicaciones, investigación y líneas de trabajo de la tesina.
 
 La tesina no se fragmenta ni se publica automáticamente. La página de textos sólo expone algunos títulos de secciones existentes como líneas de trabajo, explícitamente marcadas como no publicadas de forma independiente.
+
+## v0.10 — volumen editorial
+
+Se incorporan tres selecciones editoriales derivadas de capítulos existentes de la tesina:
+
+- `Hacer que las cosas sucedan`;
+- `La constelación como política del encuentro`;
+- `Disputar la métrica: del rendimiento al disfrute`.
+
+No son artículos definitivos ni reemplazan la tesina. Funcionan como piezas de prototipado con contenido real, sujetas a revisión de Dannae.
+
+También se agrega `PROJECT_CONTEXT.md` como memoria integral de decisiones, fuentes, restricciones y estado del proyecto para handoff entre sesiones/modelos.

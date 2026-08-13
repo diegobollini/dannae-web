@@ -6,13 +6,7 @@ const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.da
 const featured = texts.find((text) => text.data.featured) ?? texts[0];
 const rest = texts.filter((text) => text.id !== featured?.id);
 
-const researchLines = [
-  'Hacer que las cosas sucedan: Gestión Cultural Feminista',
-  'Prácticas Curatoriales: la constelación como activismo y afectación',
-  'Del hartazgo al grito organizado',
-  'Disputar la métrica: del rendimiento al disfrute',
-  'Posibles indicadores para una gestión cultural feminista'
-];
+const thesisFragments = texts.filter((text) => text.data.type === 'Fragmento de tesina');
 ---
 <BaseLayout
   title="Textos e investigación — Dannae Abdalla"
@@ -68,14 +62,17 @@ const researchLines = [
         <span class="mono">TESINA / LÍNEAS DE TRABAJO</span>
         <div>
           <h2>Una investigación puede abrir más de una conversación.</h2>
-          <p>Estos títulos son ejes existentes dentro de la tesina. No se presentan todavía como artículos independientes.</p>
+          <p>Selecciones editoriales construidas a partir de capítulos existentes de la tesina. Sirven para probar el sitio con contenido real y quedan sujetas a revisión de Dannae.</p>
         </div>
       </div>
-      <ol class="research-lines-list">
-        {researchLines.map((line, index) => (
+      <ol class="research-lines-list research-lines-linked">
+        {thesisFragments.map((text, index) => (
           <li>
             <span class="mono">{String(index + 1).padStart(2, '0')}</span>
-            <strong>{line}</strong>
+            <a href={`/textos/${text.id}/`}>
+              <strong>{text.data.title}</strong>
+              <b>Leer →</b>
+            </a>
           </li>
         ))}
       </ol>
