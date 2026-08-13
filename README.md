@@ -79,3 +79,12 @@ El contenido mantiene el ancho editorial mediante un wrapper interno `.container
 Se incorpora una marca `D.` como favicon, icono para iOS y tarjeta social.
 El `<head>` suma canonical, Open Graph, Twitter Card y datos estructurados básicos de `Person`.
 La tarjeta social no usa fotografías y mantiene la identidad gráfica del sitio.
+
+## v0.9 — archivos editoriales
+
+Se agregan dos rutas de archivo de primer nivel:
+
+- `/proyectos/`: casos de gestión, producción, mediación e investigación.
+- `/textos/`: publicaciones, investigación y líneas de trabajo de la tesina.
+
+La tesina no se fragmenta ni se publica automáticamente. La página de textos sólo expone algunos títulos de secciones existentes como líneas de trabajo, explícitamente marcadas como no publicadas de forma independiente.

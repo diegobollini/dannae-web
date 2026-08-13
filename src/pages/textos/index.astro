@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const texts = (await getCollection('textos')).sort((a, b) => a.data.order - b.data.order);
+const featured = texts.find((text) => text.data.featured) ?? texts[0];
+const rest = texts.filter((text) => text.id !== featured?.id);
+
+const researchLines = [
+  'Hacer que las cosas sucedan: Gestión Cultural Feminista',
+  'Prácticas Curatoriales: la constelación como activismo y afectación',
+  'Del hartazgo al grito organizado',
+  'Disputar la métrica: del rendimiento al disfrute',
+  'Posibles indicadores para una gestión cultural feminista'
+];
+---
+<BaseLayout
+  title="Textos e investigación — Dannae Abdalla"
+  description="Publicaciones, investigación y líneas de trabajo sobre gestión cultural, artes escénicas y feminismos."
+  bodyClass="archive-page archive-texts-page"
+>
+  <header class="text-archive-hero">
+    <div class="container">
+      <div class="archive-hero-meta mono">
+        <span>02 / TEXTOS</span>
+        <span>{String(texts.length).padStart(2, '0')} fichas editoriales</span>
+      </div>
+      <p class="page-kicker">Textos e investigación</p>
+      <h1 class="text-archive-title">Pensar también produce mundo.</h1>
+      <p class="text-archive-lead">Publicaciones, investigación aplicada y una tesina que reúne años de práctica en gestión cultural y artes escénicas.</p>
+    </div>
+  </header>
+
+  <section class="text-archive-main">
+    <div class="container text-archive-grid">
+      {featured && (
+        <a class="text-archive-featured" href={`/textos/${featured.id}/`}>
+          <span class="mono">DESTACADO · {featured.data.year}</span>
+          <strong>{featured.data.title}</strong>
+          <p>{featured.data.summary}</p>
+          <b>Leer ficha →</b>
+        </a>
+      )}
+
+      <div class="text-archive-list">
+        <div class="archive-list-head mono">
+          <span>Archivo</span>
+          <span>Publicaciones e investigación</span>
+        </div>
+        {rest.map((text, index) => (
+          <a class="text-archive-row" href={`/textos/${text.id}/`}>
+            <span class="mono">{String(index + 2).padStart(2, '0')}</span>
+            <div>
+              <strong>{text.data.title}</strong>
+              <small>{text.data.publication ?? text.data.type}</small>
+            </div>
+            <em>{text.data.year}</em>
+            <b>→</b>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="research-lines-wrap">
+    <div class="container research-lines">
+      <div class="research-lines-heading">
+        <span class="mono">TESINA / LÍNEAS DE TRABAJO</span>
+        <div>
+          <h2>Una investigación puede abrir más de una conversación.</h2>
+          <p>Estos títulos son ejes existentes dentro de la tesina. No se presentan todavía como artículos independientes.</p>
+        </div>
+      </div>
+      <ol class="research-lines-list">
+        {researchLines.map((line, index) => (
+          <li>
+            <span class="mono">{String(index + 1).padStart(2, '0')}</span>
+            <strong>{line}</strong>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="archive-end archive-end-magenta">
+    <div class="container archive-end-inner">
+      <span class="mono">DEL PENSAMIENTO AL HACER</span>
+      <a href="/proyectos/">Archivo de proyectos <b>→</b></a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectRow from '../../components/ProjectRow.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('proyectos')).sort((a, b) => a.data.order - b.data.order);
+const metricsCount = projects.reduce((total, project) => total + project.data.metrics.length, 0);
+---
+<BaseLayout
+  title="Proyectos — Dannae Abdalla"
+  description="Archivo de proyectos de gestión cultural, artes escénicas, mediación, producción e investigación de Dannae Abdalla."
+  bodyClass="archive-page archive-projects-page"
+>
+  <header class="archive-hero container">
+    <div class="archive-hero-meta mono">
+      <span>01 / PROYECTOS</span>
+      <span>{String(projects.length).padStart(2, '0')} casos seleccionados</span>
+    </div>
+    <p class="page-kicker">Archivo de proyectos</p>
+    <h1 class="archive-title">Gestionar también deja archivo.</h1>
+    <div class="archive-intro-grid">
+      <p class="archive-lead">Programas públicos, experiencias autogestivas, mediación cultural, producción escénica e investigación.</p>
+      <p class="archive-side mono">producir / coordinar / articular / medir / evaluar / volver a hacer</p>
+    </div>
+  </header>
+
+  <section class="archive-project-list-wrap">
+    <div class="container archive-project-list">
+      <div class="archive-list-head mono">
+        <span>Proyecto</span>
+        <span>{metricsCount} datos documentados en el archivo actual</span>
+      </div>
+      {projects.map((project, index) => (
+        <ProjectRow
+          index={index + 1}
+          id={project.id}
+          title={project.data.title}
+          eyebrow={project.data.eyebrow}
+          period={project.data.period}
+          metrics={project.data.metrics}
+          accent={project.data.accent}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="container archive-method ruled">
+    <span class="mono">Cómo leer este archivo</span>
+    <div>
+      <h2>No sólo qué se hizo. También cómo.</h2>
+      <p>Cada caso prioriza rol, escala, articulaciones, decisiones y resultados. El objetivo no es reconstruir un currículum cronológico, sino mostrar prácticas de gestión.</p>
+    </div>
+  </section>
+
+  <section class="archive-end archive-end-blue">
+    <div class="container archive-end-inner">
+      <span class="mono">OTRO UNIVERSO</span>
+      <a href="/textos/">Textos e investigación <b>→</b></a>
+    </div>
+  </section>
+</BaseLayout>

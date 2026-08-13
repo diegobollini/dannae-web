@@ -14,6 +14,8 @@ const {
 } = Astro.props;
 
 const pathname = Astro.url.pathname;
+const isProjects = pathname.startsWith('/proyectos');
+const isTexts = pathname.startsWith('/textos');
 const isBio = pathname.startsWith('/bio');
 const isCredits = pathname.startsWith('/creditos');
 const siteURL = Astro.site ?? new URL('https://dannaeabdalla.com.ar');
@@ -76,8 +78,8 @@ const personSchema = {
       <div class="site-header-inner container">
         <a class="brand" href="/" aria-label="Dannae Abdalla — inicio">DANNAE ABDALLA</a>
         <nav class="site-nav" aria-label="Principal">
-          <a data-nav="blue" href="/#proyectos">Proyectos</a>
-          <a data-nav="magenta" href="/#textos">Textos</a>
+          <a data-nav="blue" href="/proyectos/" aria-current={isProjects ? 'page' : undefined}>Proyectos</a>
+          <a data-nav="magenta" href="/textos/" aria-current={isTexts ? 'page' : undefined}>Textos</a>
           <a data-nav="teal" href="/bio/#trayectoria">Trayectoria</a>
           <a data-nav="yellow" href="/bio/" aria-current={isBio ? 'page' : undefined}>Bio</a>
           <a data-nav="coral" href="/#contacto">Contacto</a>
