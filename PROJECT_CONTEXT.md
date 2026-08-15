@@ -549,6 +549,8 @@ Hitos relevantes:
 - v0.10: volumen editorial con fragmentos reales de la tesina + contexto integral del proyecto.
 - v0.10.1: hotfix de barra vertical decorativa en páginas de proyecto; se mueve al gutter exterior.
 - v0.11: ampliación de los cuatro proyectos + dos nuevas selecciones de tesina + referencias visuales en todas las fichas de proyecto.
+- v0.11.1: unificación de voz editorial; primera persona para experiencia propia y voz neutral para procesos colectivos.
+- v0.12: densidad editorial: bio larga, página Escena, ampliación de “Hacer que las cosas sucedan” y casos profesionales más desarrollados.
 
 Último commit confirmado por Diego antes de preparar v0.10:
 
@@ -578,13 +580,15 @@ Todas las fichas usan fotografías abiertas únicamente como **referencias conte
 
 ### Textos derivados de tesina
 
-Hay cinco selecciones editoriales provisionales:
+Hay al menos siete selecciones editoriales provisionales en el archivo actual:
 
 1. Hacer que las cosas sucedan.
 2. La constelación como política del encuentro.
 3. Disputar la métrica: del rendimiento al disfrute.
 4. Del hartazgo al grito organizado.
 5. Sostener la vida también es gestionar.
+6. Del hartazgo al grito organizado.
+7. Otros fragmentos de tesina cargados en el archivo editorial según la versión aplicada.
 
 Estas piezas son adaptaciones editoriales para prototipado. No deben presentarse como artículos publicados previamente ni como versiones definitivas autorizadas por Dannae.
 
@@ -619,3 +623,39 @@ Prioridad 80/20 hasta el 24/08:
 7. preparar preguntas concretas para Dannae.
 
 La complejidad del proyecto debe estar en **identidad, contenido, composición y criterio editorial**, no en el stack.
+
+
+---
+
+## 18. v0.12 — criterio editorial
+
+Objetivo: aumentar el volumen de texto real sin rellenar el sitio con copy genérico.
+
+Cambios centrales:
+
+- Bio ampliada a una narración profesional en primera persona, basada exclusivamente en CV y tesina.
+- Nueva página `/escena/` para desarrollar la relación entre actuación, producción y gestión.
+- “Hacer que las cosas sucedan” ampliado como pieza conceptual de aproximadamente 900 palabras.
+- Provocaciones Escénicas, Argentina Florece, La Comedia de Hacer Arte y SubVersión Feminista pasan a funcionar como casos profesionales con contexto, decisiones, procesos y aprendizaje.
+- La home enlaza “Una forma de hacer” con el texto largo y “Escena” con la nueva página.
+
+Regla de autoría:
+
+- El material en primera persona es un **borrador editorial para revisión con Dannae**.
+- No inventar experiencias, opiniones, fechas ni resultados.
+- Los fragmentos derivados de la tesina siguen identificados como tales.
+- No completar publicaciones históricas a partir del título: faltan sus textos originales.
+
+## 19. Fuentes que todavía faltan
+
+Para completar el archivo editorial con fidelidad se necesitan, si están disponibles:
+
+- texto completo de “Una escena propia”;
+- informe “Hábitos de consumo de las artes escénicas en Rosario”;
+- capítulo “Infancias libres: el futuro llegó hace rato”;
+- capítulo “Más querer ser”;
+- capítulo “Locura de Clown, payasos de hospital”;
+- fechas exactas de La Comedia de Hacer Arte, Laboratorio UNR y Orquesta Sinfónica;
+- fotografías propias autorizadas para reemplazar referencias libres.
+
+Hasta contar con esos materiales, mantener sus fichas como referencias bibliográficas o resúmenes mínimos y no fabricar contenido.

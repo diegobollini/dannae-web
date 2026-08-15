@@ -17,38 +17,64 @@ featured: true
 order: 1
 accent: "blue"
 ---
-En Provocaciones Escénicas articulo formación de audiencias, mediación cultural, investigación aplicada y trabajo en red dentro de la comunidad universitaria de la Universidad Nacional de Rosario.
+En **Provocaciones Escénicas** articulo formación de audiencias, mediación cultural, investigación aplicada y trabajo en red dentro de la comunidad universitaria de la Universidad Nacional de Rosario.
 
-No se limita a programar funciones. El proyecto trabaja sobre la relación entre las obras, los públicos y las instituciones para producir condiciones concretas de acceso, conversación y aprendizaje alrededor de las artes escénicas.
+El punto de partida no es solamente programar funciones. El programa trabaja sobre la relación entre las obras, los públicos y las instituciones para producir condiciones concretas de acceso, conversación y aprendizaje alrededor de las artes escénicas.
 
-## Tres ediciones, una práctica continua
+## Un programa, no una sucesión de eventos
 
 A lo largo de tres ediciones se realizaron **17 funciones de artes escénicas** con acceso gratuito para más de **600 espectadores**.
 
-La continuidad permitió observar el programa como un proceso y no como una sucesión de eventos aislados: cada edición aportó información para revisar criterios, vínculos y dispositivos de mediación.
+La continuidad es una parte central del proyecto. Permite observar qué sucede de una edición a otra, revisar decisiones y construir una relación menos episódica entre la universidad y el entramado cultural de la ciudad.
 
-## Medir para aprender
+Cada función forma parte de un proceso mayor: selección y articulación con organizaciones culturales, producción, comunicación, acompañamiento a públicos, mediación y registro de información.
 
-Diseñé y apliqué **180 cuestionarios de monitoreo**, junto con la sistematización de los datos de asistencia.
+El resultado no se agota cuando termina una obra.
 
-La evaluación no aparece después de la gestión. Forma parte del diseño del proyecto y permite convertir la experiencia en información útil para tomar decisiones.
+## Formar audiencias significa construir relaciones
 
-## Mediación cultural
+Hablar de formación de audiencias puede sugerir una relación vertical donde una institución enseña a un público cómo debe acercarse al arte.
 
-Coordiné **11 instancias de mediación**, entre conversatorios y visitas guiadas, además de un acto de cierre de ciclo con más de 100 asistentes entre instituciones, grupos y público.
+En la práctica, el programa funciona de otra manera. Las instancias de mediación abren espacios para que la experiencia escénica pueda ser conversada, contextualizada y apropiada desde recorridos diferentes.
 
-Estas instancias amplían la experiencia escénica: la función deja de ser el punto final y se convierte en el inicio de otras conversaciones.
+Coordiné **11 instancias de mediación**, entre conversatorios y visitas guiadas. También se realizó un acto de cierre de ciclo con más de **100 asistentes** entre instituciones, grupos y público.
 
-## Articulación institucional
+Estas actividades extienden el tiempo de la función. Habilitan preguntas, cruces y encuentros que no necesariamente existirían dentro de la lógica habitual de circulación de un espectáculo.
 
-El programa trabajó con un promedio de **9 organizaciones culturales por edición**, llegando a 14 en la edición de mayor despliegue.
+## Medir para aprender, no solamente para informar
 
-La articulación conecta universidad, espacios culturales, grupos artísticos y públicos. Esa red es parte del resultado del programa, no solamente su infraestructura operativa.
+Diseñé y apliqué **180 cuestionarios de monitoreo**, además de trabajar en la sistematización de los datos de asistencia.
 
-## Formación en gestión cultural
+La evaluación forma parte del diseño del programa. No aparece únicamente al final para justificar que una actividad ocurrió.
 
-Provocaciones Escénicas también funcionó como espacio de aprendizaje situado para estudiantes de la carrera de Gestión Cultural.
+Registrar información permite conocer mejor a quienes participan, observar recurrencias, detectar límites y producir evidencia para revisar decisiones futuras.
+
+Ese enfoque conecta gestión e investigación aplicada: hacer una actividad, observar qué produjo y utilizar esa información para modificar la práctica.
+
+## La red también es un resultado
+
+Provocaciones Escénicas trabajó con un promedio de **9 organizaciones culturales por edición**, llegando a **14** en la edición de mayor despliegue.
+
+La articulación conecta universidad, espacios culturales, grupos artísticos, cátedras, estudiantes y públicos.
+
+Esa red no es sólo una condición logística para completar una programación. Es parte del valor del proyecto: genera circulación entre instituciones que no siempre comparten los mismos espacios ni los mismos lenguajes de trabajo.
+
+Gestionar esa trama implica traducir necesidades, coordinar tiempos y sostener acuerdos entre actores con estructuras diferentes.
+
+## Aprender gestión dentro de un proyecto real
+
+El programa también se convirtió en un espacio de formación situada para estudiantes de Gestión Cultural.
 
 Acompañé a **8 estudiantes becarias** en tareas de preproducción, producción, comunicación y sistematización de datos, con participación activa de **3 cátedras**.
 
-La formación ocurre así dentro de un proyecto real: hacer, observar, registrar, evaluar y volver a hacer.
+Ese aprendizaje ocurre dentro de un proceso concreto. No se trata de simular una producción, sino de participar de sus decisiones, restricciones, problemas y resultados.
+
+Hacer, observar, registrar, evaluar y volver a hacer.
+
+## Qué muestra este proyecto de mi práctica
+
+Provocaciones reúne varias líneas que atraviesan mi trabajo: gestión de proyectos, articulación institucional, mediación cultural, producción de información y evaluación.
+
+También muestra una manera de entender la programación. La obra es importante, pero no está aislada de las relaciones que la hacen circular ni de las conversaciones que puede producir.
+
+El proyecto me interesa precisamente por ese cruce: una política cultural universitaria puede ampliar el acceso a las artes escénicas y, al mismo tiempo, producir conocimiento sobre sus públicos y fortalecer vínculos con el territorio cultural de Rosario.
