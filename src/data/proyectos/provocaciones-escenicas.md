@@ -17,7 +17,7 @@ featured: true
 order: 1
 accent: "blue"
 ---
-Provocaciones Escénicas articula formación de audiencias, mediación cultural, investigación aplicada y trabajo en red dentro de la comunidad universitaria de la Universidad Nacional de Rosario.
+En Provocaciones Escénicas articulo formación de audiencias, mediación cultural, investigación aplicada y trabajo en red dentro de la comunidad universitaria de la Universidad Nacional de Rosario.
 
 No se limita a programar funciones. El proyecto trabaja sobre la relación entre las obras, los públicos y las instituciones para producir condiciones concretas de acceso, conversación y aprendizaje alrededor de las artes escénicas.
 
@@ -29,13 +29,13 @@ La continuidad permitió observar el programa como un proceso y no como una suce
 
 ## Medir para aprender
 
-El trabajo incluyó el diseño y aplicación de **180 cuestionarios de monitoreo**, junto con la sistematización de los datos de asistencia.
+Diseñé y apliqué **180 cuestionarios de monitoreo**, junto con la sistematización de los datos de asistencia.
 
 La evaluación no aparece después de la gestión. Forma parte del diseño del proyecto y permite convertir la experiencia en información útil para tomar decisiones.
 
 ## Mediación cultural
 
-Se coordinaron **11 instancias de mediación**, entre conversatorios y visitas guiadas, además de un acto de cierre de ciclo con más de 100 asistentes entre instituciones, grupos y público.
+Coordiné **11 instancias de mediación**, entre conversatorios y visitas guiadas, además de un acto de cierre de ciclo con más de 100 asistentes entre instituciones, grupos y público.
 
 Estas instancias amplían la experiencia escénica: la función deja de ser el punto final y se convierte en el inicio de otras conversaciones.
 
@@ -49,6 +49,6 @@ La articulación conecta universidad, espacios culturales, grupos artísticos y 
 
 Provocaciones Escénicas también funcionó como espacio de aprendizaje situado para estudiantes de la carrera de Gestión Cultural.
 
-El trabajo acompañó a **8 estudiantes becarias** en tareas de preproducción, producción, comunicación y sistematización de datos, con participación activa de **3 cátedras**.
+Acompañé a **8 estudiantes becarias** en tareas de preproducción, producción, comunicación y sistematización de datos, con participación activa de **3 cátedras**.
 
 La formación ocurre así dentro de un proyecto real: hacer, observar, registrar, evaluar y volver a hacer.
